@@ -17,7 +17,25 @@ float centimetros_para_metros(float centimetros) {
 float milimetros_para_metros(float milimetros) {
     return milimetros / 1000;
 }
-
+// temperatura
+float celsius_para_fahrenheit(float temp){
+    return ((temp* 1.8) + 32);
+}
+float celsius_para_kelvin(float temp){
+    return temp + 273;
+}
+float fahrenheit_para_celsius(float temp){
+    return ( (5/9)*(temp- 32)); 
+}
+float fahrenheit_para_kelvin(float temp){
+	return((temp-32)*(5/9)+273);
+}
+float kelvin_para_celsius(float temp){
+	return(temp-273);
+}
+float kelvin_para_fahrenheit(float temp){
+	return((temp-273)*(9/5)+32);
+}
 int main() {
     int opcao;
     float valor, resultado;
