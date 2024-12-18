@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include "funcoes.h"
 
+
 // Funções auxiliares
 void menu_conversor_comprimento();
 void exibir_menu_comprimento();
 
-// Todas as funções de conversão
+
+// Funcoes do conversor de comprimeto:
+
+// Funções de conversão
 float metros_para_centimetros(float metros) {
     return metros * 100;
 }
@@ -74,6 +78,14 @@ void menu_conversor_comprimento() {
         }
     } while (1);
 }
+
+// Funções do conversor de Temperatura:
+
+// Funções de conversão
+
+// Função para exibir o menu de conversão de temperatura
+
+// Função para o menu de conversão de temperatura
 
 int main() {
     int opcao_principal;
