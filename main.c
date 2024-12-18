@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "funcoes.h"
 
-// Funções de conversão
+// Todas as funções de conversão
 float metros_para_centimetros(float metros) {
     return metros * 100;
 }
@@ -71,3 +71,5 @@ int main() {
 
     return 0;
 }
+
+
