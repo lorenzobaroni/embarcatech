@@ -80,6 +80,8 @@ void menu_conversor_comprimento() {
 }
 
 // Funções do conversor de Temperatura:
+
+// Funções de conversão
 float celsius_para_fahrenheit(float temp) {
     return (temp * 1.8) + 32;
 }
@@ -103,9 +105,6 @@ float kelvin_para_celsius(float temp) {
 float kelvin_para_fahrenheit(float temp) {
     return ((temp - 273.15) * 9.0/5.0) + 32;
 }
-
-
-// Funções de conversão
 
 // Função para exibir o menu de conversão de temperatura
 void exibir_menu_temperatura() {
@@ -134,7 +133,7 @@ void menu_conversor_temperatura() {
         }
 
         if (opcao >= 1 && opcao <= 6) {
-            printf("Digite o valor a ser convertido: ");
+            printf("Digite a temperatura a ser convertida: ");
             scanf("%f", &valor);
 
             switch (opcao) {
@@ -169,6 +168,8 @@ void menu_conversor_temperatura() {
     } while (1);
 }
 
+
+// Função main
 int main() {
     int opcao_principal;
     do {
