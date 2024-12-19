@@ -80,12 +80,94 @@ void menu_conversor_comprimento() {
 }
 
 // Funções do conversor de Temperatura:
+float celsius_para_fahrenheit(float temp) {
+    return (temp * 1.8) + 32;
+}
+
+float celsius_para_kelvin(float temp) {
+    return temp + 273.15;
+}
+
+float fahrenheit_para_celsius(float temp) {
+    return (5.0/9.0) * (temp - 32);
+}
+
+float fahrenheit_para_kelvin(float temp) {
+    return ((temp - 32) * 5.0/9.0) + 273.15;
+}
+
+float kelvin_para_celsius(float temp) {
+    return temp - 273.15;
+}
+
+float kelvin_para_fahrenheit(float temp) {
+    return ((temp - 273.15) * 9.0/5.0) + 32;
+}
+
 
 // Funções de conversão
 
 // Função para exibir o menu de conversão de temperatura
-
+void exibir_menu_temperatura() {
+    printf("\n=== Conversor de Temperatura ===\n");
+    printf("1. Celsius para fahrenheit\n");
+    printf("2. Celsius para Kelvin\n");
+    printf("3. fahrenheit para Celsius\n");
+    printf("4. fahrenheit para Kelvin\n");
+    printf("5. Kelvin para Celsius\n");
+    printf("6. Kelvin para fahrenheit\n");
+    printf("0. Voltar ao Menu Principal\n");
+    printf("Digite a opção desejada: ");
+}
 // Função para o menu de conversão de temperatura
+void menu_conversor_temperatura() {
+    int opcao;
+    float valor, resultado;
+
+    do {
+        exibir_menu_temperatura(); // Exibe o menu de temperatura
+        scanf("%d", &opcao);
+
+        if (opcao == 0) {
+            printf("Voltando ao Menu Principal...\n");
+            break;
+        }
+
+        if (opcao >= 1 && opcao <= 6) {
+            printf("Digite o valor a ser convertido: ");
+            scanf("%f", &valor);
+
+            switch (opcao) {
+                case 1:
+                    resultado = celsius_para_fahrenheit(valor);
+                    printf("%.2fC equivalem a %.2fF.\n", valor, resultado);
+                    break;
+                case 2:
+                    resultado = celsius_para_kelvin(valor);
+                    printf("%.2fC equivalem a %.2fK.\n", valor, resultado);
+                    break;
+                case 3:
+                    resultado = fahrenheit_para_celsius(valor);
+                    printf("%.2fF equivalem a %.2fC.\n", valor, resultado);
+                    break;
+                case 4:
+                    resultado = fahrenheit_para_kelvin(valor);
+                    printf("%.2fF equivalem a %.2fK.\n", valor, resultado);
+                    break;
+                case 5:
+                    resultado = kelvin_para_celsius(valor);
+                    printf("%.2fK equivalem a %.2fC.\n", valor, resultado);
+                    break;
+                case 6:
+                    resultado = kelvin_para_fahrenheit(valor);
+                    printf("%.2fK equivalem a %.2fF.\n", valor, resultado);
+                    break;
+            }
+        } else {
+            printf("Opção inválida! Escolha entre 1 e 6 ou 0 para voltar.\n");
+        }
+    } while (1);
+}
 
 int main() {
     int opcao_principal;
@@ -102,6 +184,9 @@ int main() {
         switch (opcao_principal) {
             case 1:
                 menu_conversor_comprimento();
+                break;
+            case 2:
+                menu_conversor_temperatura();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
