@@ -168,6 +168,105 @@ void menu_conversor_temperatura() {
     } while (1);
 }
 
+//Funções para conversão de velocidade:
+
+float KilometroHora_para_MetroSegundo(float velocidade){
+    
+    return velocidade / 3.6;
+}
+
+float KilometroHora_para_MilhaHora(float velocidade){
+    
+    return velocidade / 1.6;
+}
+
+float MetroSegundo_para_MilhaHora(float velocidade){
+    
+    return velocidade * 2.2;
+}
+
+
+float MetroSegundo_para_KilometroHora(float velocidade) {
+    return velocidade * 3.6;
+}
+
+float MilhaHora_para_MetroSegundo(float velocidade){
+    
+    return velocidade / 2.2;
+}
+
+float MilhaHora_para_KilometroHora(float velocidade){
+    
+    return velocidade * 1.6;
+}
+
+// Função para exibir o menu de conversão de velocidade
+void exibir_menu_velocidade() {
+    
+    printf("\n=== Conversor de Velocidade ===\n");
+    printf("1. Km/h para m/s\n");
+    printf("2. Km/h para mph\n");
+    printf("3. m/s para mph\n");
+    printf("4. m/s para km/h\n");
+    printf("5. mph para m/s\n");
+    printf("6. mph para km/h\n");
+    printf("0. Voltar ao Menu Principal\n");
+    printf("Digite a opção desejada: ");
+}
+
+// Função para o menu de conversão de temperatura
+void menu_conversor_velocidade() {
+    int opcao;
+    float valor, resultado;
+
+    do {
+        exibir_menu_velocidade(); // Exibe o menu de velocidade
+        scanf("%d", &opcao);
+
+        if (opcao == 0) {
+            printf("Voltando ao Menu Principal...\n");
+            break;
+        }
+
+        if (opcao >= 1 && opcao <= 6) {
+            printf("Digite o valor a ser convertido: ");
+            scanf("%f", &valor);
+
+            switch (opcao) {
+                case 1:
+                    resultado = KilometroHora_para_MetroSegundo(valor);
+                    printf("%.2fKm/h equivalem a %.2fm/s.\n", valor, resultado);
+                    break;
+                case 2:
+                    resultado = KilometroHora_para_MilhaHora(valor);
+                    printf("%.2fKm/h equivalem a %.2fmph.\n", valor, resultado);
+                    break;
+                case 3:
+                    resultado = MetroSegundo_para_MilhaHora(valor);
+                    printf("%.2fm/s equivalem a %.2fmph.\n", valor, resultado);
+                    break;
+                case 4:
+                    resultado = MetroSegundo_para_KilometroHora(valor);
+                    printf("%.2fm/s equivalem a %.2fKm/h.\n", valor, resultado);
+                    break;
+                case 5:
+                    resultado = MilhaHora_para_MetroSegundo(valor);
+                    printf("%.2fmph equivalem a %.2fm/s\n", valor, resultado);
+                    break;
+                case 6:
+                    resultado = MilhaHora_para_KilometroHora(valor);
+                    printf("%.2fmph equivalem a %.2fKm/h.\n", valor, resultado);
+                    break;
+            }
+        } else {
+            printf("Opção inválida! Escolha entre 1 e 6 ou 0 para voltar.\n");
+        }
+    } while (1);
+}
+
+
+
+
 
 // Função main
 int main() {
@@ -178,6 +277,7 @@ int main() {
         printf("Escolha o tipo de conversor:\n");
         printf("1. Conversor de Comprimento\n");
         printf("2. Conversor de Temperatura\n");
+        printf("3. Conversor de Velocidade\n");
         printf("0. Sair\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_principal);
@@ -188,6 +288,9 @@ int main() {
                 break;
             case 2:
                 menu_conversor_temperatura();
+                break;
+            case 3:
+                menu_conversor_velocidade();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
