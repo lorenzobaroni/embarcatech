@@ -17,4 +17,12 @@ float fahrenheit_para_kelvin(float temp);
 float kelvin_para_celsius(float temp);
 float kelvin_para_fahrenheit(float temp);
 
+// Funções de conversão de temperatura
+float KilometroHora_para_MetroSegundo(float velocidade);
+float KilometroHora_para_MilhaHora(float velocidade);
+float MetroSegundo_para_MilhaHora(float velocidade);
+float MetroSegundo_para_KilometroHora(float velocidade);
+float MilhaHora_para_MetroSegundo(float velocidade);
+float MilhaHora_para_KilometroHora(float velocidade);
+
 #endif
