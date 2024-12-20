@@ -34,7 +34,7 @@ float kilowatts_para_cv(float kilowatts);
 float cv_para_watts(float cv);
 float cv_para_kilowatts(float cv);
 
-//Funções de conversão de massa
+//Funções de conversão de massa.
 float quilograma_para_grama(float kg_g);
 float quilograma_para_tonelada(float kg_t);
 float grama_para_tonelada(float g_t);

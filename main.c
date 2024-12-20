@@ -391,7 +391,7 @@ void exibir_menu_massa(){
         printf("6-Tonelada para quilograma\n");
 }
 
-//Função para o menu de conversão de massa
+//Função para o menu de conversão de massa.
 void menu_conversor_massa(){
     int opcao;
     float valor, resultado;
