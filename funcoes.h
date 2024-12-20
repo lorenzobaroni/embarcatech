@@ -25,4 +25,13 @@ float MetroSegundo_para_KilometroHora(float velocidade);
 float MilhaHora_para_MetroSegundo(float velocidade);
 float MilhaHora_para_KilometroHora(float velocidade);
 
+// Funções de conversão de potência
+void menu_conversor_potencia();
+float watts_para_kilowatts(float watts);
+float watts_para_cv(float watts);
+float kilowatts_para_watts(float kilowatts);
+float kilowatts_para_cv(float kilowatts);
+float cv_para_watts(float cv);
+float cv_para_kilowatts(float cv);
+
 #endif
