@@ -2,14 +2,9 @@
 #include "funcoes.h"
 
 
-// Funções auxiliares
-void menu_conversor_comprimento();
-void exibir_menu_comprimento();
+// Todas as funções do conversor de comprimeto:
 
-
-// Funcoes do conversor de comprimeto:
-
-// Funções de conversão
+// Funções de conversão de comprimento
 float metros_para_centimetros(float metros) {
     return metros * 100;
 }
@@ -37,8 +32,8 @@ void exibir_menu_comprimento() {
     printf("Digite a opção desejada: ");
 }
 
-// Função para o menu de conversão de comprimento
-void menu_conversor_comprimento() {
+// Função para executar o conversor de comprimento
+void executar_conversor_comprimento() {
     int opcao;
     float valor, resultado;
 
@@ -79,31 +74,32 @@ void menu_conversor_comprimento() {
     } while (1);
 }
 
-// Funções do conversor de Temperatura:
 
-// Funções de conversão
-float celsius_para_fahrenheit(float temp) {
-    return (temp * 1.8) + 32;
+// Todas as funcões do conversor de Temperatura:
+
+// Funções de conversão de temperatura
+float celsius_para_fahrenheit(float celsius) {
+    return (celsius * 1.8) + 32;
 }
 
-float celsius_para_kelvin(float temp) {
-    return temp + 273.15;
+float celsius_para_kelvin(float celsius) {
+    return celsius + 273.15;
 }
 
-float fahrenheit_para_celsius(float temp) {
-    return (5.0/9.0) * (temp - 32);
+float fahrenheit_para_celsius(float fahrenheit) {
+    return (5.0/9.0) * (fahrenheit - 32);
 }
 
-float fahrenheit_para_kelvin(float temp) {
-    return ((temp - 32) * 5.0/9.0) + 273.15;
+float fahrenheit_para_kelvin(float fahrenheit) {
+    return ((fahrenheit - 32) * 5.0/9.0) + 273.15;
 }
 
-float kelvin_para_celsius(float temp) {
-    return temp - 273.15;
+float kelvin_para_celsius(float kelvin) {
+    return kelvin - 273.15;
 }
 
-float kelvin_para_fahrenheit(float temp) {
-    return ((temp - 273.15) * 9.0/5.0) + 32;
+float kelvin_para_fahrenheit(float kelvin) {
+    return ((kelvin - 273.15) * 9.0/5.0) + 32;
 }
 
 // Função para exibir o menu de conversão de temperatura
@@ -118,8 +114,8 @@ void exibir_menu_temperatura() {
     printf("0. Voltar ao Menu Principal\n");
     printf("Digite a opção desejada: ");
 }
-// Função para o menu de conversão de temperatura
-void menu_conversor_temperatura() {
+// Função para executar o conversor de temperatura
+void executar_conversor_temperatura() {
     int opcao;
     float valor, resultado;
 
@@ -168,36 +164,33 @@ void menu_conversor_temperatura() {
     } while (1);
 }
 
-//Funções para conversão de velocidade:
 
-float KilometroHora_para_MetroSegundo(float velocidade){
-    
-    return velocidade / 3.6;
+// Todas as funcões do conversor de velocidade:
+
+// Funções de conversão de velocidade
+
+float KilometroHora_para_MetroSegundo(float KilometroHora){
+    return KilometroHora / 3.6;
 }
 
-float KilometroHora_para_MilhaHora(float velocidade){
-    
-    return velocidade / 1.6;
+float KilometroHora_para_MilhaHora(float KilometroHora){
+    return KilometroHora / 1.6;
 }
 
-float MetroSegundo_para_MilhaHora(float velocidade){
-    
-    return velocidade * 2.2;
+float MetroSegundo_para_MilhaHora(float MetroSegundo){
+    return MetroSegundo * 2.2;
 }
 
-
-float MetroSegundo_para_KilometroHora(float velocidade) {
-    return velocidade * 3.6;
+float MetroSegundo_para_KilometroHora(float MetroSegundo) {
+    return MetroSegundo * 3.6;
 }
 
-float MilhaHora_para_MetroSegundo(float velocidade){
-    
-    return velocidade / 2.2;
+float MilhaHora_para_MetroSegundo(float MilhaHora){
+    return MilhaHora / 2.2;
 }
 
-float MilhaHora_para_KilometroHora(float velocidade){
-    
-    return velocidade * 1.6;
+float MilhaHora_para_KilometroHora(float MilhaHora){
+    return MilhaHora * 1.6;
 }
 
 // Função para exibir o menu de conversão de velocidade
@@ -214,8 +207,8 @@ void exibir_menu_velocidade() {
     printf("Digite a opção desejada: ");
 }
 
-// Função para o menu de conversão de temperatura
-void menu_conversor_velocidade() {
+// Função para executar o conversor de velocidade
+void executar_conversor_velocidade() {
     int opcao;
     float valor, resultado;
 
@@ -264,13 +257,16 @@ void menu_conversor_velocidade() {
     } while (1);
 }
 
+
+// Todas as funcões do conversor de potência:
+
 // Funções de conversão de potência
 float watts_para_kilowatts(float watts) {
     return watts / 1000;
 }
 
 float watts_para_cv(float watts) {
-    return watts / 735.5; // 1 cv = 735.5 watts
+    return watts / 735.5;
 }
 
 float kilowatts_para_watts(float kilowatts) {
@@ -302,8 +298,8 @@ void exibir_menu_potencia() {
     printf("Digite a opção desejada: ");
 }
 
-// Menu para conversor de potência
-void menu_conversor_potencia() {
+// Função para executar o conversor de potência
+void executar_conversor_potencia() {
     int opcao;
     float valor, resultado;
 
@@ -352,52 +348,55 @@ void menu_conversor_potencia() {
     } while (1);
 }
 
-// Funcoes do conversor de massa:
 
-// Funções de conversão
-float quilograma_para_grama(float kg_g){
-    return kg_g*1000;
+// Todas as funções do conversor de massa:
+
+// Funções de conversão de massa
+float quilograma_para_grama(float quilograma){
+    return quilograma * 1000;
 }
 
-float quilograma_para_tonelada(float kg_t){
-    return kg_t*0.001;
+float quilograma_para_tonelada(float quilograma){
+    return quilograma * 0.001;
 }
 
-float grama_para_tonelada(float g_t){
-    return g_t*0.0000001;
+float grama_para_tonelada(float grama){
+    return grama * 0.0000001;
 }
 
-float grama_para_quilograma(float g_kg){
-    return g_kg*0.001;
+float grama_para_quilograma(float grama){
+    return grama * 0.001;
 }
 
-float tonelada_para_grama(float t_g){
-    return t_g*1000000;
+float tonelada_para_grama(float tonelada){
+    return tonelada * 1000000;
 }
 
-float tonelada_para_quilograma(float t_kg){
-    return t_kg*1000;
+float tonelada_para_quilograma(float tonelada){
+    return tonelada * 1000;
 }
 
 // Função para exibir o menu de conversão de massa
 void exibir_menu_massa(){
         printf("\n== Conversor de Massa ==\n");
         printf("Digite o numero correspondente a conversão desejada:\n");
-        printf("1-Quilograma para grama\n");
-        printf("2-Quilograma para tonelada\n");
-        printf("3-Grama para quilograma\n");
-        printf("4-Grama para tonelada\n");
-        printf("5-Tonelada para grama\n");
-        printf("6-Tonelada para quilograma\n");
+        printf("1. Quilograma para grama\n");
+        printf("2. Quilograma para tonelada\n");
+        printf("3. Grama para quilograma\n");
+        printf("4. Grama para tonelada\n");
+        printf("5. Tonelada para grama\n");
+        printf("6. Tonelada para quilograma\n");
+        printf("0. Voltar ao Menu Principal\n");
+        printf("Digite a opção desejada: ");
 }
 
-//Função para o menu de conversão de massa.
-void menu_conversor_massa(){
+// Função para o executar o conversor de massa
+void executar_conversor_massa(){
     int opcao;
     float valor, resultado;
 
     do{
-        exibir_menu_massa();
+        exibir_menu_massa(); // Exibe o menu de massa
         scanf("%d", &opcao);
 
         if(opcao==0){
@@ -436,36 +435,37 @@ void menu_conversor_massa(){
                     break;
             }
         }else{
-            printf("Opção invalida por favor, escolha alguma opção entre 1 e 6 ou digite 0 para sair.\n");    
+            printf("Opção inválida! Escolha entre 1 e 6 ou 0 para voltar.\n");    
         }
 
     }while (1);
     
 }
 
-//Funções do conversor de tempo:
 
-// Todas as funções de conversão
+// Todas as funções do conversor de tempo:
+
+// Funções de conversão de tempo
 float horas_para_minutos(float horas){
-    return horas*60;
+    return horas * 60;
 }
 float minutos_para_horas(float minutos){
-    return minutos/60;
+    return minutos / 60;
 }
 float horas_para_segundos(float horas){
-    return horas*3600;
+    return horas * 3600;
 }
 float segundos_para_horas(float segundos){
-    return segundos/3600;
+    return segundos / 3600;
 }
 float minutos_para_segundos(float minutos){
-    return minutos*60;
+    return minutos * 60;
 }
 float segundos_para_minutos(float segundos){
-    return segundos/60;
+    return segundos / 60;
 }
 
-//função para exibir o menu de conversão de tempo
+// Função para exibir o menu de conversão de tempo
 void exibir_menu_tempo(){
     printf("\n=== Conversor de Tempo ===\n");
     printf("1. Horas para Minutos.\n");
@@ -478,13 +478,13 @@ void exibir_menu_tempo(){
     printf("Digite a opção desejada: ");
 }
 
-//função para o menu de conversão de tempo.
-void menu_conversor_tempo(){
+// Função para executar o conversor de tempo
+void executar_conversor_tempo(){
     int opcao;
     float valor, resultado;
 
     do{
-        exibir_menu_tempo();
+        exibir_menu_tempo(); // Exibe o menu de tempo
         scanf("%d", &opcao);
 
         if(opcao==0){
@@ -552,28 +552,28 @@ int main() {
 
         switch (opcao_principal) {
             case 1:
-                menu_conversor_comprimento();
+                executar_conversor_comprimento();
                 break;
             case 2:
-                menu_conversor_temperatura();
+                executar_conversor_temperatura();
                 break;
             case 3:
-                menu_conversor_velocidade();
+                executar_conversor_velocidade();
                 break;
             case 4:
-                menu_conversor_potencia();
+                executar_conversor_potencia();
                 break;
             case 5:
-                menu_conversor_massa();
+                executar_conversor_massa();
                 break;
             case 6:
-                menu_conversor_tempo();
+                executar_conversor_tempo();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
                 break;
             default:
-                printf("Opção inválida! Escolha entre 1 e 2 ou 0 para sair.\n");
+                printf("Opção inválida! Escolha entre 1 e 6 ou 0 para sair.\n");
         }
     } while (opcao_principal != 0);
 
