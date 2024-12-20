@@ -443,6 +443,96 @@ void menu_conversor_massa(){
     
 }
 
+//Funções do conversor de tempo:
+
+// Todas as funções de conversão
+float horas_para_minutos(float horas){
+    return horas*60;
+}
+float minutos_para_horas(float minutos){
+    return minutos/60;
+}
+float horas_para_segundos(float horas){
+    return horas*3600;
+}
+float segundos_para_horas(float segundos){
+    return segundos/3600;
+}
+float minutos_para_segundos(float minutos){
+    return minutos*60;
+}
+float segundos_para_minutos(float segundos){
+    return segundos/60;
+}
+
+//função para exibir o menu de conversão de tempo
+void exibir_menu_tempo(){
+    printf("\n=== Conversor de Tempo ===\n");
+    printf("1. Horas para Minutos.\n");
+    printf("2. Minutos para Horas.\n");
+    printf("3. Horas para Segundos.\n");
+    printf("4. Segundos para Horas\n");
+    printf("5. Minutos para Segundos\n");
+    printf("6. Segundos para Minutos\n");
+    printf("O. Voltar ao Menu Principal.\n");
+    printf("Digite a opção desejada: ");
+}
+
+//função para o menu de conversão de tempo.
+void menu_conversor_tempo(){
+    int opcao;
+    float valor, resultado;
+
+    do{
+        exibir_menu_tempo();
+        scanf("%d", &opcao);
+
+        if(opcao==0){
+            printf("Voltando ao menu principal...\n");
+            break;
+        }
+
+        if(opcao>=1 && opcao<=6){
+            printf("Digite o valor a ser convertido: ");
+            scanf("%f", &valor);
+
+            switch (opcao){
+            case 1:
+            resultado=horas_para_minutos(valor);
+            printf("%.2f horas equivalem a %.2f minutos.\n", valor, resultado);
+            break;
+
+            case 2:
+            resultado=minutos_para_horas(valor);
+            printf("%.2f minutos equivalem a %.2f horas.\n", valor, resultado);
+            break;
+            
+            case 3:
+            resultado=horas_para_segundos(valor);
+            printf("%.2f horas equivalem a %.2f segundos.\n", valor, resultado);
+            break;
+
+            case 4:
+            resultado=segundos_para_horas(valor);
+            printf("%.2f segundos equivalem a %.2f horas.\n", valor, resultado);
+            break;
+
+            case 5:
+            resultado=minutos_para_segundos(valor);
+            printf("%.2f minutos equivalem a %.2f segundos.\n", valor, resultado);
+            break;
+
+            case 6:
+            resultado=segundos_para_minutos(valor);
+            printf("%.2f segundos equivalem a %.2f minutos.\n", valor, resultado);
+            break;
+            }
+        } else {
+            printf("Opção inválida! Escolha entre 1 e 6 ou 0 para voltar.\n");
+        } 
+    }while (1); 
+}
+
 // Função main
 int main() {
     int opcao_principal;
@@ -455,6 +545,7 @@ int main() {
         printf("3. Conversor de Velocidade\n");
         printf("4. Conversor de Potência\n");
         printf("5. Conversor de Massa\n");
+        printf("6. Conversor de Tempo\n");
         printf("0. Sair\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_principal);
@@ -474,6 +565,9 @@ int main() {
                 break;
             case 5:
                 menu_conversor_massa();
+                break;
+            case 6:
+                menu_conversor_tempo();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
