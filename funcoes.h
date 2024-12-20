@@ -42,4 +42,12 @@ float grama_para_quilograma(float g_kg);
 float tonelada_para_grama(float t_g);
 float tonelada_para_quilograma(float t_kg);
 
+//Funções de conversão de tempo.
+float horas_para_minutos(float horas);
+float minutos_para_horas(float minutos);
+float horas_para_segundos(float horas);
+float segundos_para_horas(float segundos);
+float minutos_para_segundos(float minutos);
+float segundos_para_minutos(float segundos);
+
 #endif
