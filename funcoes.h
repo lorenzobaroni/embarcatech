@@ -17,4 +17,13 @@ float fahrenheit_para_kelvin(float temp);
 float kelvin_para_celsius(float temp);
 float kelvin_para_fahrenheit(float temp);
 
+// Funções de conversão de potência
+void menu_conversor_potencia();
+float watts_para_kilowatts(float watts);
+float watts_para_cv(float watts);
+float kilowatts_para_watts(float kilowatts);
+float kilowatts_para_cv(float kilowatts);
+float cv_para_watts(float cv);
+float cv_para_kilowatts(float cv);
+
 #endif
