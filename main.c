@@ -352,6 +352,96 @@ void menu_conversor_potencia() {
     } while (1);
 }
 
+// Funcoes do conversor de massa:
+
+// Funções de conversão
+float quilograma_para_grama(float kg_g){
+    return kg_g*1000;
+}
+
+float quilograma_para_tonelada(float kg_t){
+    return kg_t*0.001;
+}
+
+float grama_para_tonelada(float g_t){
+    return g_t*0.0000001;
+}
+
+float grama_para_quilograma(float g_kg){
+    return g_kg*0.001;
+}
+
+float tonelada_para_grama(float t_g){
+    return t_g*1000000;
+}
+
+float tonelada_para_quilograma(float t_kg){
+    return t_kg*1000;
+}
+
+// Função para exibir o menu de conversão de massa
+void exibir_menu_massa(){
+        printf("\n== Conversor de Massa ==\n");
+        printf("Digite o numero correspondente a conversão desejada:\n");
+        printf("1-Quilograma para grama\n");
+        printf("2-Quilograma para tonelada\n");
+        printf("3-Grama para quilograma\n");
+        printf("4-Grama para tonelada\n");
+        printf("5-Tonelada para grama\n");
+        printf("6-Tonelada para quilograma\n");
+}
+
+//Função para o menu de conversão de massa
+void menu_conversor_massa(){
+    int opcao;
+    float valor, resultado;
+
+    do{
+        exibir_menu_massa();
+        scanf("%d", &opcao);
+
+        if(opcao==0){
+            printf("Voltando ao Menu Principal...\n");
+            break;
+        }
+
+        if(opcao>= 1 && opcao <=6){
+            printf("Digite o valor a ser convertido:");
+            scanf("%f", &valor);
+
+            switch(opcao){
+                case 1:
+                    resultado= quilograma_para_grama(valor);
+                    printf("%.2f Quilos equivalem a %.2f gramas.\n", valor, resultado);
+                    break;
+                case 2:
+                    resultado= quilograma_para_tonelada(valor);
+                    printf("%.2f Quilos equivalem a %.2f toneladas.\n", valor, resultado);
+                    break;
+                case 3:
+                    resultado= grama_para_quilograma(valor);
+                    printf("%.2f Gramas equivalem a %.2f quilos.\n", valor, resultado);
+                    break;
+                case 4:
+                    resultado= grama_para_tonelada(valor);
+                    printf("%.2f Gramas equivalem a %.2f toneladas.\n", valor, resultado);
+                    break;
+                case 5:
+                    resultado= tonelada_para_grama(valor);
+                    printf("%.2f Toneladas equivalem a %.2f gramas.\n", valor, resultado);
+                    break;
+                case 6:
+                    resultado= tonelada_para_quilograma(valor);
+                    printf("%.2f Toneladas equivalem a %.2f quilos.\n", valor, resultado);
+                    break;
+            }
+        }else{
+            printf("Opção invalida por favor, escolha alguma opção entre 1 e 6 ou digite 0 para sair.\n");    
+        }
+
+    }while (1);
+    
+}
 
 // Função main
 int main() {
@@ -364,6 +454,7 @@ int main() {
         printf("2. Conversor de Temperatura\n");
         printf("3. Conversor de Velocidade\n");
         printf("4. Conversor de Potência\n");
+        printf("5. Conversor de Massa\n");
         printf("0. Sair\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_principal);
@@ -380,6 +471,9 @@ int main() {
                 break;
             case 4:
                 menu_conversor_potencia();
+                break;
+            case 5:
+                menu_conversor_massa();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
