@@ -264,8 +264,93 @@ void menu_conversor_velocidade() {
     } while (1);
 }
 
+// Funções de conversão de potência
+float watts_para_kilowatts(float watts) {
+    return watts / 1000;
+}
 
+float watts_para_cv(float watts) {
+    return watts / 735.5; // 1 cv = 735.5 watts
+}
 
+float kilowatts_para_watts(float kilowatts) {
+    return kilowatts * 1000;
+}
+
+float kilowatts_para_cv(float kilowatts) {
+    return kilowatts * 1000 / 735.5;
+}
+
+float cv_para_watts(float cv) {
+    return cv * 735.5;
+}
+
+float cv_para_kilowatts(float cv) {
+    return cv * 735.5 / 1000;
+}
+
+// Exibir menu de potência
+void exibir_menu_potencia() {
+    printf("\n=== Conversor de Potência ===\n");
+    printf("1. Watts para Quilowatts\n");
+    printf("2. Watts para Cavalos-vapor\n");
+    printf("3. Quilowatts para Watts\n");
+    printf("4. Quilowatts para Cavalos-vapor\n");
+    printf("5. Cavalos-vapor para Watts\n");
+    printf("6. Cavalos-vapor para Quilowatts\n");
+    printf("0. Voltar ao Menu Principal\n");
+    printf("Digite a opção desejada: ");
+}
+
+// Menu para conversor de potência
+void menu_conversor_potencia() {
+    int opcao;
+    float valor, resultado;
+
+    do {
+        exibir_menu_potencia(); // Exibe o menu de potência
+        scanf("%d", &opcao);
+
+        if (opcao == 0) {
+            printf("Voltando ao Menu Principal...\n");
+            break;
+        }
+
+        if (opcao >= 1 && opcao <= 6) {
+            printf("Digite o valor a ser convertido: ");
+            scanf("%f", &valor);
+
+            switch (opcao) {
+                case 1:
+                    resultado = watts_para_kilowatts(valor);
+                    printf("%.2f Watts equivalem a %.2f Quilowatts.\n", valor, resultado);
+                    break;
+                case 2:
+                    resultado = watts_para_cv(valor);
+                    printf("%.2f Watts equivalem a %.2f Cavalos-vapor.\n", valor, resultado);
+                    break;
+                case 3:
+                    resultado = kilowatts_para_watts(valor);
+                    printf("%.2f Quilowatts equivalem a %.2f Watts.\n", valor, resultado);
+                    break;
+                case 4:
+                    resultado = kilowatts_para_cv(valor);
+                    printf("%.2f Quilowatts equivalem a %.2f Cavalos-vapor.\n", valor, resultado);
+                    break;
+                case 5:
+                    resultado = cv_para_watts(valor);
+                    printf("%.2f Cavalos-vapor equivalem a %.2f Watts.\n", valor, resultado);
+                    break;
+                case 6:
+                    resultado = cv_para_kilowatts(valor);
+                    printf("%.2f Cavalos-vapor equivalem a %.2f Quilowatts.\n", valor, resultado);
+                    break;
+            }
+        } else {
+            printf("Opção inválida! Escolha entre 1 e 6 ou 0 para voltar.\n");
+        }
+    } while (1);
+}
 
 
 // Função main
@@ -278,6 +363,7 @@ int main() {
         printf("1. Conversor de Comprimento\n");
         printf("2. Conversor de Temperatura\n");
         printf("3. Conversor de Velocidade\n");
+        printf("4. Conversor de Potência\n");
         printf("0. Sair\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_principal);
@@ -291,6 +377,9 @@ int main() {
                 break;
             case 3:
                 menu_conversor_velocidade();
+                break;
+            case 4:
+                menu_conversor_potencia();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
