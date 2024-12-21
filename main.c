@@ -164,6 +164,121 @@ void executar_conversor_temperatura() {
     } while (1);
 }
 
+// Função para exibir o menu de conversão de comprimento
+void exibir_menu_bit_1() {
+    printf("\n=== Conversor de bit ===\n");
+    printf("1. Converter de bit\n");
+    printf("2. Converter de Byte\n");
+    printf("3. Converter de Kilobyte\n");
+    printf("4. Converter de Megabyte\n");
+    printf("5. Converter de Gigabyte\n");
+    printf("6. Converter de Terabyte\n");
+    printf("0. Voltar ao Menu Principal\n");
+    printf("Digite a opção desejada: ");
+}
+
+void exibir_menu_bit_2() {
+    printf("\n=== Conversor de bit ===\n");
+    printf("1. Para bit\n");
+    printf("2. Para Byte\n");
+    printf("3. Para Kilobyte\n");
+    printf("4. Para Megabyte\n");
+    printf("5. Para Gigabyte\n");
+    printf("6. Para Terabyte\n");
+    printf("0. Voltar ao Menu Principal\n");
+    printf("Digite a opção desejada: ");
+}
+
+
+void menu_conversor_bit() {
+    int opcao1, opcao2;
+    float valor, resultado, bits;
+    float daUnidade, paraUnidade; 
+    char str1[20], str2[20];
+
+    do {
+        exibir_menu_bit_1();
+        scanf("%d", &opcao1);
+
+        switch (opcao1)
+        {
+        case 1:
+            daUnidade = 1;
+            snprintf(str1, sizeof(str1), "bit");
+            break;
+        case 2:
+            daUnidade = 8;
+            snprintf(str1, sizeof(str1), "byte");
+            break;
+        case 3:
+            daUnidade = 8*1024;
+            snprintf(str1, sizeof(str1), "Kilobyte");
+            break;
+        case 4:
+            daUnidade = 8*1024*1024;
+            snprintf(str1, sizeof(str1), "Megabyte");
+            break;
+        case 5:
+            daUnidade = 8ULL*1024*1024*1024;
+            snprintf(str1, sizeof(str1), "Gigabyte");
+            break;
+        case 6:
+            daUnidade = 8ULL*1024*1024*1024*1024;
+            snprintf(str1, sizeof(str1), "Terabyte");
+            break;        
+        }
+
+        exibir_menu_bit_2();
+        scanf("%d", &opcao2);
+
+        switch (opcao2)
+        {
+        case 1:
+            paraUnidade = 1;
+            snprintf(str2, sizeof(str2), "bit");
+            break;
+        case 2:
+            paraUnidade = 8;
+            snprintf(str2, sizeof(str2), "byte");
+            break;
+        case 3:
+            paraUnidade = 8*1024;
+            snprintf(str2, sizeof(str2), "Kilobyte");
+            break;
+        case 4:
+            paraUnidade = 8*1024*1024;
+            snprintf(str2, sizeof(str2), "Megabyte");
+            break;
+        case 5:
+            paraUnidade = 8ULL*1024*1024*1024;
+            snprintf(str2, sizeof(str2), "Gigabyte");
+            break;
+        case 6:
+            paraUnidade = 8ULL*1024*1024*1024*1024;
+            snprintf(str2, sizeof(str2), "Terabyte");
+            break;        
+        }
+
+        if (opcao1 == 0 || opcao2 == 0) {
+            printf("Voltando ao Menu Principal...\n");
+            break;
+        }
+
+        if (opcao1 && opcao2 >= 1 && opcao1 && opcao2 <= 6) {
+
+            printf("Digite o valor a ser convertido: ");
+            scanf("%f", &valor);
+            bits = valor * daUnidade;
+            resultado = bits/paraUnidade;
+
+            printf("%f %s equivalem a %.5f %s.\n", valor, str1, resultado, str2);
+
+        } else {
+            printf("Opção inválida! Escolha entre 1 e 6 ou 0 para voltar.\n");
+        }
+    } while (1);
+}
+
 
 // Todas as funcões do conversor de velocidade:
 
@@ -546,6 +661,7 @@ int main() {
         printf("4. Conversor de Potência\n");
         printf("5. Conversor de Massa\n");
         printf("6. Conversor de Tempo\n");
+        printf("7. Conversor de bits\n");
         printf("0. Sair\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_principal);
@@ -569,11 +685,14 @@ int main() {
             case 6:
                 executar_conversor_tempo();
                 break;
+            case 7:
+                menu_conversor_bit();
+                break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
                 break;
             default:
-                printf("Opção inválida! Escolha entre 1 e 6 ou 0 para sair.\n");
+                printf("Opção inválida! Escolha entre 1 e 7 ou 0 para sair.\n");
         }
     } while (opcao_principal != 0);
 
