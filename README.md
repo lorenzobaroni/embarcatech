@@ -63,6 +63,10 @@ O programa oferece os seguintes conversores:
 - Metros Quadrados para Centímetros Quadrados
 - Centímetros Quadrados para Metros Quadrados
 
+#### Testes de Conversores:
+
+- Validação automatizada para garantir que os cálculos de conversão estão corretos.
+
 ## Como Funciona
 
 O programa possui um menu principal que permite ao usuário escolher o tipo de conversor que deseja usar. Após selecionar o conversor, o usuário é direcionado para o menu correspondente, onde pode escolher a conversão específica e inserir os valores.
@@ -73,6 +77,20 @@ O programa possui um menu principal que permite ao usuário escolher o tipo de c
 2. No menu específico, o usuário escolhe a operação desejada.
 3. O programa solicita o valor a ser convertido e exibe o resultado da conversão.
 4. O usuário pode retornar ao menu principal ou realizar novas conversões.
+
+## Testes de Conversores
+
+O programa inclui uma funcionalidade de testes automatizados para validar a precisão de todas as funções de conversão. A função ```testar_conversores``` executa testes para os conversores de comprimento, temperatura, velocidade, potência, massa, tempo e área.
+
+#### Como Funciona?
+
+O programa utiliza a função auxiliar ```comparar_float``` para verificar se o valor retornado pela função de conversão está dentro de uma tolerância aceitável do valor esperado. Para cada teste realizado, o programa imprime se o resultado foi Aprovado ou Reprovado, indicando qual função passou ou falhou no teste. Cada função de conversão é testada com um conjunto de valores de entrada e resultados esperados para garantir que os cálculos estão corretos.
+
+## Estrutura do Código
+
+- main.c: Contém o menu principal e a lógica de navegação entre os diferentes tipos de conversores.
+- funcoes.c: Contém as funções de conversão, as funções auxiliares e a função de testes de conversores.
+- funcoes.h: Declaração das funções usadas no programa.
 
 ## Compilação e Execução
 
