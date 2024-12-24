@@ -533,6 +533,62 @@ void executar_conversor_tempo(){
     }while (1); 
 }
 
+// Todas as funções do conversor de area:
+
+// Funções de conversão de area
+float metros_centimetros(float valor) {
+    return valor * 10000;
+}
+
+float centimetros_metros(float valor) {
+    return valor / 10000;
+}
+
+// Função para exibir o menu de conversão de area
+void exibir_menu_area(){
+    printf("\n=== Conversor de area ===\n");
+    printf("1. Metros quadrados para centimetros quadrados.\n");
+    printf("2. Centimetros quadrados para metros quadrados.\n");
+    printf("0. Voltar ao Menu Principal.\n");
+    printf("Digite a opção desejada: ");
+}
+
+// Função para executar o conversor de area
+void executar_conversor_area(){
+    int opcao;
+    float valor, resultado;
+
+    do{
+        exibir_menu_area(); // Exibe o menu da area
+        scanf("%d", &opcao);
+
+        if(opcao==0){
+            printf("Voltando ao menu principal...\n");
+            break;
+        }
+
+        if(opcao>=1 && opcao<=2){
+            printf("Digite o valor a ser convertido: ");
+            scanf("%f", &valor);
+
+            switch (opcao){
+            case 1:
+            resultado=metros_centimetros(valor);
+            printf("%.8f metros quadrados equivalem a %.8f centimetros quadrados.\n", valor, resultado);
+            break;
+
+            case 2:
+            resultado=centimetros_metros(valor);
+            printf("%.8f centimetros quadrados equivalem a %.8f metros quadrados.\n", valor, resultado);
+            break;
+                
+            }
+        } else {
+            printf("Opção inválida! Escolha entre 1 e 2 ou 0 para voltar.\n");
+        } 
+    }while (1); 
+}
+
 // Função main
 int main() {
     int opcao_principal;
@@ -546,6 +602,7 @@ int main() {
         printf("4. Conversor de Potência\n");
         printf("5. Conversor de Massa\n");
         printf("6. Conversor de Tempo\n");
+        printf("7. Conversor de Area\n");
         printf("0. Sair\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_principal);
@@ -568,6 +625,9 @@ int main() {
                 break;
             case 6:
                 executar_conversor_tempo();
+                break;
+            case 7:
+                executar_conversor_area();
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");

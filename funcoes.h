@@ -47,6 +47,10 @@ float segundos_para_horas(float segundos);
 float minutos_para_segundos(float minutos);
 float segundos_para_minutos(float segundos);
 
+// Funções de conversão de area
+float metros_centimetros(float valor); 
+float centimetros_metros(float valor);
+
 // Funções auxiliares
 void exibir_menu_comprimento();
 void executar_conversor_comprimento();
@@ -65,5 +69,8 @@ void executar_conversor_massa();
 
 void exibir_menu_tempo();
 void executar_conversor_tempo();
+
+void exibir_menu_area();
+void executar_conversor_area();
 
 #endif
