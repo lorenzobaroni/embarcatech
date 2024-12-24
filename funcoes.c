@@ -1,5 +1,6 @@
 #include "funcoes.h"
 #include <stdio.h>
+#include <math.h>
 
 // Funções genéricas para exibição de menu e leitura
 
@@ -61,7 +62,13 @@ void executar_conversor_comprimento() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Comprimento", menu_comprimento, 5);
+        do {
+            opcao = exibir_menu("Conversor de Comprimento", menu_comprimento, 5);
+
+            if (opcao < 0 || opcao > 4) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 4.\n");
+            }
+        } while (opcao < 0 || opcao > 4); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -134,7 +141,13 @@ void executar_conversor_temperatura() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Temperatura", menu_temperatura, 7);
+        do {
+            opcao = exibir_menu("Conversor de Temperatura", menu_temperatura, 7);
+
+            if (opcao < 0 || opcao > 6) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 6.\n");
+            }
+        } while (opcao < 0 || opcao > 6); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -214,7 +227,12 @@ void executar_conversor_velocidade() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Velocidade", menu_velocidade, 7);
+        do{
+            opcao = exibir_menu("Conversor de Velocidade", menu_velocidade, 7);
+            if (opcao < 0 || opcao > 6) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 6.\n");
+            }
+        } while (opcao < 0 || opcao > 6); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -295,7 +313,12 @@ void executar_conversor_potencia() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Potência", menu_potencia, 7);
+        do{
+            opcao = exibir_menu("Conversor de Potência", menu_potencia, 7);
+            if (opcao < 0 || opcao > 6) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 6.\n");
+            }
+        } while (opcao < 0 || opcao > 6); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -376,7 +399,12 @@ void executar_conversor_massa() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Massa", menu_massa, 7);
+        do{
+            opcao = exibir_menu("Conversor de Massa", menu_massa, 7);
+            if (opcao < 0 || opcao > 6) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 6.\n");
+            }
+        } while (opcao < 0 || opcao > 6); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -457,7 +485,12 @@ void executar_conversor_tempo() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Tempo", menu_tempo, 7);
+        do{
+            opcao = exibir_menu("Conversor de Tempo", menu_tempo, 7);
+            if (opcao < 0 || opcao > 6) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 6.\n");
+            }
+        } while (opcao < 0 || opcao > 6); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -518,7 +551,12 @@ void executar_conversor_area() {
 
     int opcao;
     do {
-        opcao = exibir_menu("Conversor de Área", menu_area, 3);
+        do{
+            opcao = exibir_menu("Conversor de Área", menu_area, 3);
+            if (opcao < 0 || opcao > 2) { // Verifica se a opção está fora do intervalo
+                printf("Opção inválida! Por favor, escolha entre 0 e 2.\n");
+            }
+        } while (opcao < 0 || opcao > 2); // Requer uma entrada válida
 
         if (opcao == 0) {
             printf("Voltando ao menu principal...\n");
@@ -543,3 +581,76 @@ void executar_conversor_area() {
     } while (1);
 }
 
+// Função para comparar se a diferença entre os dois números estão dentro da tolerância (0.01)
+int comparar_float(float valor1, float valor2, float tolerancia) {
+    return fabs(valor1 - valor2) <= tolerancia;
+}
+
+// Função para testar os conversores
+void testar_conversores() {
+    printf("\n=== Testando Conversores ===\n");
+
+    int total_testes = 0, testes_aprovados = 0;
+
+    // Função auxiliar para validar os testes
+    #define TESTAR(func, entrada, esperado, tolerancia) \
+        do { \
+            total_testes++; \
+            if (comparar_float(func(entrada), esperado, tolerancia)) { \
+                printf(#func "(%.2f) → Aprovado\n", entrada); \
+                testes_aprovados++; \
+            } else { \
+                printf(#func "(%.2f) → Falhou. Esperado: %.2f\n", entrada, esperado); \
+            } \
+        } while (0)
+
+    // Testando Conversor de Comprimento
+    printf("\n[Testando Conversor de Comprimento]\n");
+    TESTAR(metros_para_centimetros, 1.0, 100.0, 0.01);
+    TESTAR(metros_para_milimetros, 2.0, 2000.0, 0.01);
+    TESTAR(centimetros_para_metros, 100.0, 1.0, 0.01);
+    TESTAR(milimetros_para_metros, 1000.0, 1.0, 0.01);
+
+    // Testando Conversor de Temperatura
+    printf("\n[Testando Conversor de Temperatura]\n");
+    TESTAR(celsius_para_fahrenheit, 0.0, 32.0, 0.01);
+    TESTAR(celsius_para_kelvin, 0.0, 273.15, 0.01);
+    TESTAR(fahrenheit_para_celsius, 32.0, 0.0, 0.01);
+    TESTAR(kelvin_para_celsius, 273.15, 0.0, 0.01);
+
+    // Testando Conversor de Velocidade
+    printf("\n[Testando Conversor de Velocidade]\n");
+    TESTAR(KilometroHora_para_MetroSegundo, 36.0, 10.0, 0.01);
+    TESTAR(KilometroHora_para_MilhaHora, 80.0, 49.71, 0.01);
+    TESTAR(MetroSegundo_para_KilometroHora, 10.0, 36.0, 0.01);
+
+    // Testando Conversor de Potência
+    printf("\n[Testando Conversor de Potência]\n");
+    TESTAR(watts_para_kilowatts, 1000.0, 1.0, 0.01);
+    TESTAR(watts_para_cv, 735.5, 1.0, 0.01);
+    TESTAR(cv_para_watts, 1.0, 735.5, 0.01);
+    TESTAR(kilowatts_para_cv, 1.0, 1.36, 0.01);
+
+    // Testando Conversor de Massa
+    printf("\n[Testando Conversor de Massa]\n");
+    TESTAR(quilograma_para_grama, 1.0, 1000.0, 0.01);
+    TESTAR(grama_para_quilograma, 1000.0, 1.0, 0.01);
+    TESTAR(tonelada_para_grama, 1.0, 1000000.0, 0.01);
+
+    // Testando Conversor de Tempo
+    printf("\n[Testando Conversor de Tempo]\n");
+    TESTAR(horas_para_minutos, 1.0, 60.0, 0.01);
+    TESTAR(minutos_para_segundos, 1.0, 60.0, 0.01);
+    TESTAR(segundos_para_horas, 3600.0, 1.0, 0.01);
+
+    // Testando Conversor de Área
+    printf("\n[Testando Conversor de Área]\n");
+    TESTAR(metros_para_centimetros_quadrados, 1.0, 10000.0, 0.01);
+    TESTAR(centimetros_para_metros_quadrados, 10000.0, 1.0, 0.01);
+
+    // Resumo dos testes
+    printf("\n=== Resumo dos Testes ===\n");
+    printf("Total de Testes: %d\n", total_testes);
+    printf("Testes Aprovados: %d\n", testes_aprovados);
+    printf("Testes Reprovados: %d\n", total_testes - testes_aprovados);
+}

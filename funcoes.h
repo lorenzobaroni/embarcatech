@@ -1,9 +1,17 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
+// Funções do main
+void exibir_menu_principal();
+int ler_opcao();
+
 // Funções genéricas para exibição de menu e leitura
 int exibir_menu(const char *titulo, const char *opcoes[], int num_opcoes);
 float ler_valor(const char *mensagem);
+
+// Funções auxiliares para testes
+int comparar_float(float valor1, float valor2, float tolerancia);
+void testar_conversores(); // Função para realizar os testes dos conversores
 
 // Funções de conversão de comprimento
 float metros_para_centimetros(float metros);
